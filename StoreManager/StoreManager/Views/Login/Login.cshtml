@@ -1,0 +1,43 @@
+﻿@model StoreManager.Models.Users
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h3>Login to try the best</h3>
+<hr />
+<div class="row">
+<div class="col-md-4">
+    <form asp-action="Login" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="userName" class="control-label"></label>
+            <input asp-for="userName" class="form-control" />
+            <span asp-validation-for="userName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="userPassword" class="control-label"></label>
+            <input asp-for="userPassword" class="form-control" />
+            <span asp-validation-for="userPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Log In" class="btn" />
+        </div>
+    </form>
+</div>
+</div>
+@{ if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <script type="text/javascript">
+           alert('@ViewBag.Message');
+        </script>
+    }
+}
+}
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
